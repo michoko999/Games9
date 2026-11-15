@@ -2,22 +2,14 @@
 <html lang="en">
 <head>
     <title>Fruit Ninja - Games | 𝙉𝙖𝙩𝙞𝙫𝙚</title>
-   <script async src="https://arc.io/widget.min.js#5XPTU21J"><script data-goatcounter="https://parcoil.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script></script><script src="maintenance.js/"></script><script>
+   <script>
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
   }
 </script>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W8NZMM8WN9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W8NZMM8WN9');
-</script><link rel="manifest" href="manifest.json">
+<link rel="manifest" href="manifest.json">
 
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -112,13 +104,14 @@
 
     <noscript>Please enable javascript to continue using this application.</noscript>
 
-    <script async
-            data-ad-client="ca-pub-6934234812187351"
-            data-ad-frequency-hint="30s"
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
     window.adsbygoogle = window.adsbygoogle || [];
-        const adBreak = adConfig = function (o) { adsbygoogle.push(o); }
+        // Pas de publicité sur Michoko : on répond tout de suite au jeu pour qu'il continue
+        const adBreak = adConfig = function (o) {
+          o = o || {};
+          try { if (typeof o.onReady === 'function') o.onReady(); } catch (e) {}
+          try { if (typeof o.adBreakDone === 'function') o.adBreakDone({ breakStatus: 'notReady' }); } catch (e) {}
+        };
     </script>
     <!-- installs the serviceWorker -->
     <!-- <script>
